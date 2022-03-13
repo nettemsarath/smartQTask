@@ -1,0 +1,4 @@
+
+1. task Deployed in Github Actions https://nettemsarath.github.io/smartQTask
+
+2. Github Code repository link : https://github.com/nettemsarath/smartQTask

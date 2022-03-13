@@ -1,5 +1,9 @@
 export const selectAvailableOrders = (state) => {
-  return { loadingAvailableOrders: true, availableOrders: null, error: null };
+  return {
+    loadingAvailableOrders: state.loadingAvailableOrders,
+    availableOrders: state.availableOrders,
+    error: state.error,
+  };
 };
 
 export const selectSetAvailableOrders = (state) => state.getAvailableOrders;

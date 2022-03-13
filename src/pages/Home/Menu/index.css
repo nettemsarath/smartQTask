@@ -29,16 +29,51 @@
   color: white;
   font-size: 16px;
   padding: 8px 15px;
+  cursor: pointer;
+}
+
+.menu_item-heading-price {
+  font-size: 22px;
+  color: blue;
 }
 
 .menu_item-quantity {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   justify-content: space-between;
-  gap: 15px;
+  gap: 20px;
   padding: 10px 0px;
 }
 
+.text_left_align {
+  text-align: right;
+}
+
 .menu_item-quantity > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_item-note_kitchen {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0px;
+}
+
+.menu_item-note_kitchen > button {
+  background: blue;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.menu_item-note_kitchen > div {
   display: flex;
   flex-direction: column;
 }
