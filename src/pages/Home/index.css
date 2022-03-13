@@ -1,0 +1,8 @@
+.home > h1 {
+  color: blue;
+}
+
+.home > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
