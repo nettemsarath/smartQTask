@@ -4,14 +4,31 @@ import { fetchAvailableOrders } from "@/httpRequest";
 
 const store = (set) => ({
   loadingAvailableOrders: true,
-  availableOrders: null,
+  availableOrders: {
+    extras: { categories: null },
+    menu: null,
+    paymentMethods: null,
+    submenu: null,
+  },
   error: null,
   getAvailableOrders: async () => {
     try {
       const allOrders = await fetchAvailableOrders();
+
+      const menuItems = allOrders.menu.map((menu_item) => {
+        return {
+          ...menu_item,
+          id: Math.floor(Math.random() * 1000),
+        };
+      });
       set({
         loadingAvailableOrders: false,
-        availableOrders: allOrders,
+        availableOrders: {
+          extras: allOrders.extras,
+          menu: menuItems,
+          paymentMethods: allOrders.paymentMethods,
+          submenu: allOrders.submenu,
+        },
       });
     } catch (error) {
       set({
@@ -20,13 +37,28 @@ const store = (set) => ({
       });
     }
   },
+  itemsInCart: [],
+  addItemsToCart: (newOrder) => {
+    set((state) => ({
+      itemsInCart: [...state.itemsInCart, newOrder],
+    }));
+  },
+  removeItemFromCart: (order) => {
+    set((state) => ({
+      itemsInCart: state.itemsInCart.filter(
+        (item) => item.foodid !== order.foodid
+      ),
+    }));
+  },
+  removeallItemsFromCart: (order) => {
+    set((state) => ({
+      itemsInCart: [],
+    }));
+  },
 });
 
 const useStore = create(
-  persist(process.env.NODE_ENV !== "production" ? devtools(store) : store, {
-    name: "event-management", // unique name
-    getStorage: () => localStorage, // (optional) by default, 'localStorage' is used
-  })
+  process.env.NODE_ENV !== "production" ? devtools(store) : store
 );
 
 export default useStore;

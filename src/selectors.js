@@ -7,3 +7,10 @@ export const selectAvailableOrders = (state) => {
 };
 
 export const selectSetAvailableOrders = (state) => state.getAvailableOrders;
+
+export const selectAddItemsToCart = (state) => state.addItemsToCart;
+export const selectItemsInCart = (state) => state.itemsInCart;
+
+export const selectRemoveItemFromCart = (state) => state.removeItemFromCart;
+export const selectRemoveallItemsFromCart = (state) =>
+  state.removeallItemsFromCart;

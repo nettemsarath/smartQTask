@@ -4,7 +4,17 @@
 
 .card {
   border-radius: 20px;
-  width: 100%;
+  width: 95%;
+  padding: 0px;
+  margin: 15px 0px;
+  padding: 5px 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.card_img {
+  border-radius: 20px;
+  width: 95%;
+  padding: 0px;
   margin: 15px 0px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
